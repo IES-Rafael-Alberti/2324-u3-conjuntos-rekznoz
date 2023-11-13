@@ -1,42 +1,42 @@
 
-def es_numero(entrada):
-    """
-    Comprueba si la entrada proporcionada es un número positivo.
-
-    Argumentos:
-        entrada (str): La entrada que se va a comprobar.
-
-    return:
-        bool: True si la entrada es un número positivo, False en caso contrario.
-    """
-    try:
-        numero = int(entrada)
-        if numero > 0:
-            return True
-        else:
-            return False
-    except ValueError:
+def control_bucle(entrada):
+    if entrada == "x":
         return False
+    else:
+        return True
 
 if __name__ == "__main__":
 
-    nombre = input("Ingresa tu nombre ")
+    nombres_primaria = set()
+    nombres_secundaria = set()
+    nombre = ""
 
-    edad = ""
-    while not es_numero(edad):
-        edad = input("Ingresa tu edad ")
+    print("Ingresa nombres de alumnos en primaria ('x' para finalizar)")
 
-    direccion = input("Ingresa tu direccion ")
+    while control_bucle(nombre):
+        nombre = input("> ")
+        if control_bucle(nombre):
+            nombres_primaria.add(nombre)
 
-    telefono = ""
-    while not es_numero(telefono):
-        telefono = input("Ingresa tu teléfono ")
+    nombre = ""
+    print("Ingresa nombres de alumnos en secundaria ('x' para finalizar)")
+    while control_bucle(nombre):
+        nombre = input("> ")
+        if control_bucle(nombre):
+            nombres_secundaria.add(nombre)
 
-    usuario = {
-        'nombre': nombre,
-        'edad': edad,
-        'direccion': direccion,
-        'telefono': telefono
-    }
+    todos = nombres_primaria.union(nombres_secundaria)
+    print("Todos los nombres")
+    print(todos)
 
-    print(f"{usuario['nombre']} tiene {usuario['edad']} años, vive en {usuario['direccion']} y su número de teléfono es {usuario['telefono']}.")
+    repetidos = nombres_primaria.intersection(nombres_secundaria)
+    print("Nombres repetidos en primaria y secundaria")
+    print(repetidos)
+
+    no_repetidos_secundaria = nombres_primaria.difference(nombres_secundaria)
+    print("Nombres de primaria que no se repiten en secundaria")
+    print(no_repetidos_secundaria)
+
+    todos_secundaria = nombres_primaria.issubset(nombres_secundaria)
+    print("¿ Estan todos los nombres de primaria en secundaria ? True o False")
+    print(todos_secundaria)

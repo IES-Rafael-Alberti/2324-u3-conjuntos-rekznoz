@@ -1,8 +1,11 @@
-from src.main1 import obtener_simbolo_divisa
+from src.main1 import viviendas
 
-def test_obtener_simbolo_divisa():
-    diccionario = {'USD': '$', 'EUR': '€', 'JPY': '¥'}
-    divisa = 'USD'
-    assert obtener_simbolo_divisa(diccionario, divisa) == True
-    divisa = 'GBP'
-    assert obtener_simbolo_divisa(diccionario, divisa) == False
+def test_viviendass():
+    compras = [
+        ("cliente1", "producto1", 100, "domicilio1"),
+        ("cliente2", "producto2", 200, "domicilio2"),
+        ("cliente1", "producto3", 150, "domicilio3")
+    ]
+    assert viviendas(compras) == ["domicilio1", "domicilio2"]
+    compras = []
+    assert viviendas(compras) == []

@@ -1,27 +1,19 @@
 
-def obtener_simbolo_divisa(diccionario, divisa):
-    """
-    Comprueba si un símbolo de divisa dado existe en un diccionario.
+def compras_domicilios(ListaClientes):
+    Direccion = set()
+    for i in ListaClientes:
+        Direccion.add(i[3])
+    return Direccion
 
-    Argumentos:
-    diccionario (dict): Un diccionario que contiene símbolos de divisa como claves.
-    divisa (str): El símbolo de divisa que se va a comprobar.
-
-    return:
-        bool: True si la divisa está presente en el diccionario, False en caso contrario.
-    """
-    if divisa in diccionario:
-        return True
-    else:
-        return False
-    
 if __name__ == "__main__":
 
-    diccionario_divisas = {'Euro': '€', 'Dollar': '$', 'Yen': '¥'}
-    divisa = input("Introduce una divisa ")
-    simbolo = obtener_simbolo_divisa(diccionario_divisas, divisa)
+    compras = [
+        ("Nuria Costa", 5, 12780.78, "Calle Las Flores 355"), 
+        ("Jorge Russo", 7, 699, "Mirasol 218"), 
+        ("Nuria Costa", 7, 532.90, "Calle Las Flores 355"), 
+        ("Julián Rodriguez", 12, 5715.99, "La Mancha 761"), 
+        ("Jorge Russo", 15, 958, "Mirasol 218")
+    ]
 
-    if simbolo:
-        print(f"El símbolo de {divisa} es: {diccionario_divisas[divisa]}")
-    else:
-        print("Divisa no encontrada")
+    domicilios_facturacion = compras_domicilios(compras)
+    print(domicilios_facturacion)
