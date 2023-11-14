@@ -1,4 +1,11 @@
 
+def repetidos(c_primero, c_secundario):
+
+    return c_primero & c_secundario
+
+def no_repetidos(c_primero, c_secundario):
+    
+    return c_primero - c_secundario
 
 if __name__ == "__main__":
 
@@ -8,11 +15,11 @@ if __name__ == "__main__":
     set_frutas1 = set(frutas1)
     set_frutas2 = set(frutas2)
 
-    frutas_comunes = set_frutas1.intersection(set_frutas2)
+    frutas_comunes = repetidos(set_frutas1, set_frutas2)
 
-    frutas_solo_en_frutas1 = set_frutas1.difference(set_frutas2)
+    frutas_solo_en_frutas1 = no_repetidos(set_frutas1, set_frutas2)
 
-    frutas_solo_en_frutas2 = set_frutas2.difference(set_frutas1)
+    frutas_solo_en_frutas2 = no_repetidos(set_frutas2, set_frutas1)
 
     print("Frutas comunes ", frutas_comunes)
     print("Frutas solo en frutas1 ", frutas_solo_en_frutas1)

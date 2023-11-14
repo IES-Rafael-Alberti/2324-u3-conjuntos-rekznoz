@@ -1,5 +1,14 @@
 
 def control_bucle(entrada):
+    """
+    Verifica si la entrada entrada es igual a "x".
+
+    Argumentos:
+        entrada (cadena): El valor de entrada que se va a comprobar.
+    
+    return:
+        bool La función devuelve False si la entrada entrada es igual a "x", de lo contrario devuelve True.
+    """
     if entrada == "x":
         return False
     else:

@@ -1,25 +1,30 @@
 
-def calcular_creditos(asignaturas):
-    """
-    Calcula el número total de créditos para un conjunto dado de asignaturas.
+def repetidos(c_primero, c_secundario):
+    return c_primero & c_secundario
 
-    Argumentos:
-        asignaturas (dict): Un diccionario en el que las claves son los nombres de las asignaturas y los valores son el número de créditos para cada asignatura.
+def pares(lista):
+    numeros = set()
+    for numero in  lista:
+        if numero % 2 == 0:
+            numeros.add(numero)
+    return numeros
 
-    return:
-        int: El número total de créditos de todas las asignaturas.
-    """
-    total = 0
-    for i in asignaturas.values():
-        total += i
-    return total
+def multipos_tres(lista): 
+    numeros = set()
+    for numero in lista:
+        if numero % 3 == 0:
+            numeros.add(numero)
+    return numeros
 
 if __name__ == "__main__":
 
-    asignaturas = {'Matematicas': 6, 'Fisica': 4, 'Quqmica': 5}
+    numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-    for Clave, Valor in asignaturas.items():
-        print(f"Asignatura {Clave} tiene {Valor} puntos")
+    par = pares(numeros)
+    
+    mutiplos_3 = multipos_tres(numeros)
+    pares_multiplos = repetidos(par, mutiplos_3)
 
-    total_creditos = calcular_creditos(asignaturas)
-    print(f"El total de puntos del curso {total_creditos}")
+    print(par)
+    print(mutiplos_3)
+    print(pares_multiplos)

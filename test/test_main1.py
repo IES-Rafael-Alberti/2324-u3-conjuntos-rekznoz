@@ -1,4 +1,4 @@
-from src.main1 import viviendas
+from src.main1 import compras_domicilios
 
 def test_viviendass():
     compras = [
@@ -6,6 +6,6 @@ def test_viviendass():
         ("cliente2", "producto2", 200, "domicilio2"),
         ("cliente1", "producto3", 150, "domicilio3")
     ]
-    assert viviendas(compras) == ["domicilio1", "domicilio2"]
+    assert compras_domicilios(compras) == {"domicilio1", "domicilio2", "domicilio3"}
     compras = []
-    assert viviendas(compras) == []
+    assert compras_domicilios(compras) == set()

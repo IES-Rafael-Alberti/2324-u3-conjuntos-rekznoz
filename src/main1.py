@@ -1,5 +1,14 @@
 
 def compras_domicilios(ListaClientes):
+    """
+    Devuelve un conjunto de direcciones únicas a partir de una lista de clientes.
+
+    Argumentos:
+        ListaClientes (list): Una lista de listas que representan a los clientes. Cada lista interna contiene el nombre, apellido, dirección y ciudad del cliente.
+
+    return:
+        set: Un conjunto que contiene las direcciones únicas de los clientes.
+    """
     Direccion = set()
     for i in ListaClientes:
         Direccion.add(i[3])

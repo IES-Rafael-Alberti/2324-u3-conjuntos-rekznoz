@@ -1,9 +1,6 @@
-from src.main6 import es_numero
+from src.main6 import juntar
 
-def test_positive_integer_input():
-    assert es_numero(4) == True
-    assert es_numero(7) == True
-    assert es_numero(99) == True
-    assert es_numero(0) == False
-    assert es_numero(-1) == False
-    assert es_numero(-99) == False
+def test_repetidos():
+    c_primero = {1, 2, 3, 4}
+    c_secundario = {3, 4, 5, 6}
+    assert juntar(c_primero, c_secundario) == {1, 2, 3, 4, 5, 6}
